@@ -4,12 +4,14 @@
   </header>
   <main>
     <h2>Pets</h2>
-    {#if pets}
+    {#if pets && pets.length}
     <ul>
       {#each pets as pet}
-      <li>{pet.name}</li>
+      <li>{pet.title}</li>
       {/each}
     </ul>
+    {:else}
+    <p>No pets found.</p>
     {/if}
     <h2>Data</h2>
     {#if pets && pets.length}
@@ -26,18 +28,6 @@
 </article>
 
 <script>
-  var pets;
-  var PROJECT_ID = 'p7p77fnd';
-  let DATASET = 'production';
-  
-  let QUERY = encodeURIComponent('*[_type == "pet"]');
-  let URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-      
-  fetch(URL)
-    .then((response) => response.json())
-    .then(({result}) => {
-      console.log(JSON.stringify(result, null, 2));
-    })
-    .catch((error) => console.log(error));
+  let pets = $$props.pets;
 </script>
 
