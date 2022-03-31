@@ -1,6 +1,7 @@
 {
-    "api": {        
-        "projectId": "ppsg7ml5",
-        "dataset": "production"
-    } 
+  "api": {
+    "projectId": "ppsg7ml5",
+    "dataset": "production"
+  },
+  "template": "node"
 }
